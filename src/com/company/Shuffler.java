@@ -15,7 +15,7 @@ public class Shuffler {
     public static void main(String[] args) {
         System.out.println("Results of " + SHUFFLE_COUNT +
                 " consecutive perfect shuffles:");
-        int[] values1 = {0, 1, 2, 3};
+        int[] values1 = {0, 1, 2, 3, 4, 5, 6, 7};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             perfectShuffle(values1);
             System.out.print("  " + j + ":");
@@ -28,7 +28,7 @@ public class Shuffler {
 
         System.out.println("Results of " + SHUFFLE_COUNT +
                 " consecutive efficient selection shuffles:");
-        int[] values2 = {0, 1, 2, 3};
+        int[] values2 = {0, 1, 2, 3, 4, 5, 6, 7};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             selectionShuffle(values2);
             System.out.print("  " + j + ":");
@@ -57,9 +57,12 @@ public class Shuffler {
             k = k +2;
         }
         k = 1;
-        for(int j = x+1 ; j < values.length; j++){
+        for(int j = x+1 ; j < (values.length -1); j++){
             shuffled [k] = values[j];
             k = k +2;
+        }
+        for( int i = 0; i < shuffled.length; i++){
+            values[i] = shuffled [i];
         }
 
     }
